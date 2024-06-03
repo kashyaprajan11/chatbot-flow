@@ -25,7 +25,7 @@ export const edges = [
     id: "e1-2",
     source: "sm-1",
     target: "sm-2",
-    label: "edge",
-    type: "smoothstep",
+    // label: "edge",
+    // type: "smoothstep",
   },
 ];

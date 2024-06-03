@@ -8,6 +8,8 @@ export default memo(({ data }) => {
     <div>
       <p>Send Message</p>
       <p>{data.label}</p>
+      <Handle type="target" position={Position.Right} />
+      <Handle type="source" position={Position.Left} />
     </div>
   );
 });

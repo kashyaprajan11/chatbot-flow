@@ -1,43 +1,39 @@
-import React, { useCallback } from "react";
-import ReactFlow, {
-  useNodesState,
-  useEdgesState,
-  addEdge,
-  Background,
-  Controls,
-  MiniMap,
-} from "reactflow";
-import "reactflow/dist/style.css";
+import { useState } from "react";
 
-import TextNode from "./components/TextNode";
-import { nodes as initialNodes, edges as initialEdges } from "../initial_data";
+import { AppProvider } from "./AppContext";
+import ChatbotFlow from "./containers/ChatbotFlow";
+import NodesPanel from "./containers/NodesPanel";
+import "./App.css";
 
-const nodeTypes = {
-  text: TextNode,
-};
-
-export default function App() {
-  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
-  const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
-
-  const onConnect = useCallback(
-    (params) => setEdges((eds) => addEdge(params, eds)),
-    [setEdges]
-  );
-
+function App() {
   return (
-    <div style={{ width: "100vw", height: "100vh" }}>
-      <ReactFlow
-        nodes={nodes}
-        edges={edges}
-        onNodesChange={onNodesChange}
-        onEdgesChange={onEdgesChange}
-        onConnect={onConnect}
-        nodeTypes={nodeTypes}
-      >
-        <Controls />
-        <Background />
-      </ReactFlow>
-    </div>
+    <AppProvider>
+      <div style={{ display: "flex" }}>
+        <div
+          style={{
+            position: "relative",
+            zIndex: 1,
+            width: "80vw",
+            height: "100vh",
+          }}
+        >
+          <ChatbotFlow />
+        </div>
+        <div
+          style={{
+            position: "relative",
+            zIndex: 2,
+            width: "20vw",
+            height: "100vh",
+            borderLeft: "1px solid rgba(0,0,0,0.1)",
+            padding: "0.75em 0.5em",
+          }}
+        >
+          <NodesPanel />
+        </div>
+      </div>
+    </AppProvider>
   );
 }
+
+export default App;
