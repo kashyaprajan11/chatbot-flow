@@ -1,6 +1,3 @@
-import React from "react";
-import { MarkerType } from "reactflow";
-
 export const nodes = [
   {
     id: "sm-1", // send-message-1
@@ -8,7 +5,7 @@ export const nodes = [
     data: {
       label: "Test message 1",
     },
-    position: { x: 150, y: 20 },
+    position: { x: 400, y: 100 },
   },
   {
     id: "sm-2",
@@ -16,7 +13,7 @@ export const nodes = [
     data: {
       label: "Test message 2",
     },
-    position: { x: 200, y: 50 },
+    position: { x: 200, y: 200 },
   },
 ];
 

@@ -6,13 +6,19 @@ import ChatbotFlow from "./containers/ChatbotFlow";
 import NodesPanel from "./containers/NodesPanel";
 import "./App.css";
 
-let id = 2;
-let getId = () => `sm-${id++}`; // Function to create the id of the new node
+// let id = 1;
+// const getId = () => `sm-${id++}`;
 
 function App() {
-  const { setNodes } = useAppContext();
+  const { nodes, setNodes } = useAppContext();
   const reactFlowWrapper = useRef(null);
+  const idRef = useRef(2);
   const [reactFlowInstance, setReactFlowInstance] = useState(null);
+
+  const getId = () => {
+    idRef.current = idRef.current + 1;
+    return `sm-${idRef.current}`;
+  };
 
   const onDragOver = useCallback((event) => {
     event.preventDefault();
