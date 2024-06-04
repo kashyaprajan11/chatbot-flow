@@ -11,8 +11,9 @@ export default memo(({ id, data }) => {
 
   const handleClick = () => {
     dispatch({
-      type: appActionTypes.UPDATE_ACTIVE_MESSAGE_ID,
+      type: appActionTypes.UPDATE_ACTIVE_MESSAGE,
       activeMessageId: id,
+      activeMessage: data.label,
     });
   };
 

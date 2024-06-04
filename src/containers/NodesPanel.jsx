@@ -6,12 +6,17 @@ import { appActionTypes, useAppContext } from "../AppContext";
 import "./NodesPanel.css";
 
 export default function NodesPanel() {
-  const [messageText, setMessageText] = useState(""); // Active message id label value here
   const { state, nodes, setNodes, dispatch } = useAppContext();
+  const [messageText, setMessageText] = useState(""); // Active message id label value here
   const { activeMessageId } = state;
 
   const handleChange = (e) => {
     setMessageText(e.target.value);
+    dispatch({
+      type: appActionTypes.UPDATE_ACTIVE_MESSAGE,
+      activeMessageId,
+      activeMessage: e.target.value,
+    });
   };
 
   useEffect(() => {
@@ -36,23 +41,6 @@ export default function NodesPanel() {
     event.dataTransfer.effectAllowed = "move";
   };
 
-  const handleUpdate = () => {
-    setNodes((nds) =>
-      nds.map((node) => {
-        if (node.id === activeMessageId) {
-          return {
-            ...node,
-            data: {
-              ...node.data,
-              label: messageText,
-            },
-          };
-        }
-        return node;
-      })
-    );
-    goBack();
-  };
   if (activeMessageId) {
     return (
       <div>

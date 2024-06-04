@@ -7,11 +7,12 @@ const AppContext = createContext(null);
 
 const initialState = {
   activeMessageId: null, // This stores the message that has been selected
+  activeMessage: "",
 };
 
 const appActionTypes = {
-  UPDATE_ACTIVE_MESSAGE_ID: "UPDATE_ACTIVE_MESSAGE_ID",
-  REMOVE_ACTIVE_MESSAGE_ID: "REMOVE_ACTIVE_MESSAGE_ID",
+  UPDATE_ACTIVE_MESSAGE: "UPDATE_ACTIVE_MESSAGE",
+  REMOVE_ACTIVE_MESSAGE: "REMOVE_ACTIVE_MESSAGE",
 };
 
 function appReducer(state = initialState, action) {
@@ -20,10 +21,14 @@ function appReducer(state = initialState, action) {
       return { ...state, newNodes: action.nodes };
     case appActionTypes.ADD_EDGE:
       return { ...state };
-    case appActionTypes.UPDATE_ACTIVE_MESSAGE_ID:
-      return { ...state, activeMessageId: action.activeMessageId };
-    case appActionTypes.REMOVE_ACTIVE_MESSAGE_ID:
-      return { ...state, activeMessageId: null };
+    case appActionTypes.UPDATE_ACTIVE_MESSAGE:
+      return {
+        ...state,
+        activeMessageId: action.activeMessageId,
+        activeMessage: action.activeMessage,
+      };
+    case appActionTypes.REMOVE_ACTIVE_MESSAGE:
+      return { ...state, activeMessageId: null, activeMessage: "" };
     default:
       return state;
   }
@@ -34,9 +39,36 @@ function AppProvider({ children }) {
 
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
 
+  const handleUpdateNodeLabel = () => {
+    setNodes((nds) =>
+      nds.map((node) => {
+        if (node.id === state.activeMessageId) {
+          return {
+            ...node,
+            data: {
+              ...node.data,
+              label: state.activeMessage,
+            },
+          };
+        }
+        return node;
+      })
+    );
+    dispatch({
+      type: appActionTypes.REMOVE_ACTIVE_MESSAGE,
+    });
+  };
+
   return (
     <AppContext.Provider
-      value={{ state, dispatch, nodes, setNodes, onNodesChange }}
+      value={{
+        state,
+        dispatch,
+        nodes,
+        setNodes,
+        onNodesChange,
+        handleUpdateNodeLabel,
+      }}
     >
       {children}
     </AppContext.Provider>

@@ -12,6 +12,7 @@
 
 .add-node-box:hover {
   cursor: pointer;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
 
 .edit-node-box-header {
