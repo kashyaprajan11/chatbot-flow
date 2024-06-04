@@ -17,4 +17,4 @@ npm run dev
 
 This project is hosted on vercel.
 
-[Vercel](https://chatbot-flow-phi.vercel.app/)
+[Project Link](https://chatbot-flow-phi.vercel.app/)
