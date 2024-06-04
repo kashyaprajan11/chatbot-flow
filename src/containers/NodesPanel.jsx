@@ -12,11 +12,20 @@ export default function NodesPanel() {
 
   const handleChange = (e) => {
     setMessageText(e.target.value);
-    dispatch({
-      type: appActionTypes.UPDATE_ACTIVE_MESSAGE,
-      activeMessageId,
-      activeMessage: e.target.value,
-    });
+    setNodes((nds) =>
+      nds.map((node) => {
+        if (node.id === activeMessageId) {
+          return {
+            ...node,
+            data: {
+              ...node.data,
+              label: e.target.value,
+            },
+          };
+        }
+        return node;
+      })
+    );
   };
 
   useEffect(() => {
@@ -32,7 +41,7 @@ export default function NodesPanel() {
 
   const goBack = () => {
     dispatch({
-      type: appActionTypes.REMOVE_ACTIVE_MESSAGE_ID,
+      type: appActionTypes.REMOVE_ACTIVE_MESSAGE,
     });
   };
 
@@ -49,7 +58,6 @@ export default function NodesPanel() {
             <IoIosArrowRoundBack style={{ height: "25px", width: "25px" }} />
           </button>
           <p>Message</p>
-          {/* <button onClick={handleUpdate}>Save Changes</button> */}
         </div>
         <hr style={{ marginBlock: "1px" }} />
 
