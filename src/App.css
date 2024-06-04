@@ -5,3 +5,16 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.add-node-box {
+  display: grid;
+  place-items: center;
+  border: 1px solid black;
+  height: 5rem;
+  width: 5rem;
+  border-radius: 5px;
+}
+
+.add-node-box:hover {
+  cursor: pointer;
+}

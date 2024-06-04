@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useState, useRef, useCallback } from "react";
 import ReactFlow, {
   useNodesState,
   useEdgesState,
@@ -19,9 +19,8 @@ const nodeTypes = {
   text: TextNode,
 };
 
-export default function ChatbotFlow() {
-  const { nodes, onNodesChange } = useAppContext();
-
+export default function ChatbotFlow(props) {
+  const { nodes, setNodes, onNodesChange } = useAppContext();
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
 
   const onConnect = useCallback(
@@ -38,6 +37,7 @@ export default function ChatbotFlow() {
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}
         nodeTypes={nodeTypes}
+        {...props}
       >
         <Controls />
         <Background />

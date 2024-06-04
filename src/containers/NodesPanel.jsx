@@ -28,6 +28,11 @@ export default function NodesPanel() {
     });
   };
 
+  const onDragStart = (event, nodeType) => {
+    event.dataTransfer.setData("application/reactflow", nodeType);
+    event.dataTransfer.effectAllowed = "move";
+  };
+
   const handleUpdate = () => {
     setNodes((nds) =>
       nds.map((node) => {
@@ -57,9 +62,17 @@ export default function NodesPanel() {
     );
   }
 
+  const handleAddNode = () => {};
+
   return (
     <div>
-      <p>This is the nodes panel</p>
+      <div
+        className="add-node-box"
+        onDragStart={(event) => onDragStart(event, "text")}
+        draggable
+      >
+        <p>Messages</p>
+      </div>
     </div>
   );
 }

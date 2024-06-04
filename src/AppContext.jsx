@@ -34,8 +34,6 @@ function AppProvider({ children }) {
 
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
 
-  console.log("nodes from context", nodes);
-
   return (
     <AppContext.Provider
       value={{ state, dispatch, nodes, setNodes, onNodesChange }}
