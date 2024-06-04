@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useReducer } from "react";
-import { useNodesState } from "reactflow";
+import { useNodesState, useEdgesState } from "reactflow";
 
 import { nodes as initialNodes, edges as initialEdges } from "../initial_data";
 
@@ -32,6 +32,7 @@ function AppProvider({ children }) {
   const [state, dispatch] = useReducer(appReducer, initialState);
 
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
+  const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
 
   return (
     <AppContext.Provider
@@ -41,6 +42,9 @@ function AppProvider({ children }) {
         nodes,
         setNodes,
         onNodesChange,
+        edges,
+        setEdges,
+        onEdgesChange,
       }}
     >
       {children}

@@ -20,8 +20,8 @@ const nodeTypes = {
 };
 
 export default function ChatbotFlow(props) {
-  const { nodes, onNodesChange } = useAppContext();
-  const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
+  const { nodes, onNodesChange, edges, setEdges, onEdgesChange } =
+    useAppContext();
 
   const onConnect = useCallback(
     (params) => setEdges((eds) => addEdge(params, eds)),
