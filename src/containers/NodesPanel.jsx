@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
+import { BiMessageRoundedDetail } from "react-icons/bi";
+import { IoIosArrowRoundBack } from "react-icons/io";
+
 import { appActionTypes, useAppContext } from "../AppContext";
-import { label } from "three/examples/jsm/nodes/Nodes.js";
+import "./NodesPanel.css";
 
 export default function NodesPanel() {
   const [messageText, setMessageText] = useState(""); // Active message id label value here
@@ -48,21 +51,33 @@ export default function NodesPanel() {
         return node;
       })
     );
-
     goBack();
   };
   if (activeMessageId) {
     return (
       <div>
-        <button onClick={goBack}>Back</button>
-        <button onClick={handleUpdate}>Save Changes</button>
-        <hr />
-        <input type="text" value={messageText} onChange={handleChange} />
+        <div className="edit-node-box-header">
+          <button className="back-button" onClick={goBack}>
+            <IoIosArrowRoundBack style={{ height: "25px", width: "25px" }} />
+          </button>
+          <p>Message</p>
+          {/* <button onClick={handleUpdate}>Save Changes</button> */}
+        </div>
+        <hr style={{ marginBlock: "1px" }} />
+
+        <div style={{ marginTop: "0.8rem" }}>
+          <p style={{ fontSize: "0.8rem", color: "grey" }}>Text</p>
+          <textarea
+            className="input-message"
+            type="text"
+            rows={5}
+            value={messageText}
+            onChange={handleChange}
+          />
+        </div>
       </div>
     );
   }
-
-  const handleAddNode = () => {};
 
   return (
     <div>
@@ -71,6 +86,7 @@ export default function NodesPanel() {
         onDragStart={(event) => onDragStart(event, "text")}
         draggable
       >
+        <BiMessageRoundedDetail style={{ height: "23px", width: "23px" }} />
         <p>Messages</p>
       </div>
     </div>
