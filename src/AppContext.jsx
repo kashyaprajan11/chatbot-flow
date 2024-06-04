@@ -10,8 +10,6 @@ const initialState = {
 };
 
 const appActionTypes = {
-  ADD_NODES: "ADD_NODES",
-  ADD_EDGE: "ADD_EDGE",
   UPDATE_ACTIVE_MESSAGE_ID: "UPDATE_ACTIVE_MESSAGE_ID",
   REMOVE_ACTIVE_MESSAGE_ID: "REMOVE_ACTIVE_MESSAGE_ID",
 };
@@ -36,26 +34,7 @@ function AppProvider({ children }) {
 
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
 
-  //   useEffect(() => {
-  //     dispatch({
-  //       type: appActionTypes.ADD_NODES,
-  //       newNodes: nodes,
-  //     });
-  //   }, [nodes, setNodes]);
-
-  const handleNodeTextChange = (id, newMessage) => {
-    setNodes((nds) =>
-      nds.map((node) => {
-        if (node.id === id) {
-          node.data = {
-            ...node.data,
-            label: newMessage,
-          };
-        }
-        return node;
-      })
-    );
-  };
+  console.log("nodes from context", nodes);
 
   return (
     <AppContext.Provider
