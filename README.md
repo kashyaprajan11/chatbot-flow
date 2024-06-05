@@ -19,7 +19,10 @@ npm run dev
 
 Here is a GIF demonstrating of the project:
 
-![Project Demo](https://drive.google.com/uc?export=view&id=1_299wbwUD_xlFsbg4Jpyl0aLIp_c1WfB)
+<video width="640" height="480" controls>
+  <source src="https://drive.google.com/uc?export=view&id=1_299wbwUD_xlFsbg4Jpyl0aLIp_c1WfB" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 # Hosting
 
