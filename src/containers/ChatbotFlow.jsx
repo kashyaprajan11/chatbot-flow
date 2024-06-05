@@ -1,19 +1,9 @@
-import React, { useState, useRef, useCallback } from "react";
-import ReactFlow, {
-  useNodesState,
-  useEdgesState,
-  addEdge,
-  Background,
-  Controls,
-} from "reactflow";
+import React, { useCallback } from "react";
+import ReactFlow, { addEdge, Background, Controls } from "reactflow";
 import "reactflow/dist/style.css";
 
 import TextNode from "../components/TextNode";
 import { useAppContext } from "../AppContext";
-import {
-  nodes as initialNodes,
-  edges as initialEdges,
-} from "../../initial_data";
 
 const nodeTypes = {
   text: TextNode,

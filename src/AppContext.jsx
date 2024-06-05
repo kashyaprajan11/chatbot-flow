@@ -6,7 +6,7 @@ import { nodes as initialNodes, edges as initialEdges } from "../initial_data";
 const AppContext = createContext(null);
 
 const initialState = {
-  activeMessageId: null, // This stores the message that has been selected
+  activeMessageId: null, // id of the selected node
 };
 
 const appActionTypes = {
@@ -31,6 +31,7 @@ function appReducer(state = initialState, action) {
 function AppProvider({ children }) {
   const [state, dispatch] = useReducer(appReducer, initialState);
 
+  // Setting up nodes and edges hook in the context api so that they are availble everywhere
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
 

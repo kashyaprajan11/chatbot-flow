@@ -9,6 +9,7 @@ import "./TextNode.css";
 export default memo(({ id, data }) => {
   const { state, dispatch } = useAppContext();
 
+  // Selected id of the node is sent to context
   const handleClick = () => {
     dispatch({
       type: appActionTypes.UPDATE_ACTIVE_MESSAGE_ID,

@@ -12,6 +12,22 @@ export default function Navigation() {
   });
   const { edges, nodes } = useAppContext();
 
+  // Show the toast and the message
+  const handleCallToast = (message, isError) => {
+    setToast({
+      show: true,
+      message,
+      isError,
+    });
+    setTimeout(() => {
+      setToast({ show: false, message: "", isError: false });
+    }, 2000);
+  };
+
+  /*
+    Node validation
+    
+  */
   const validateNodes = () => {
     const nodeIdsWithIncomingEdges = new Set(edges.map((edge) => edge.target));
     const nodesWithoutIncomingEdges = nodes.filter(
@@ -19,30 +35,12 @@ export default function Navigation() {
     );
 
     if (nodes.length > 1 && nodesWithoutIncomingEdges.length > 1) {
-      setToast({
-        show: true,
-        message: "Cannot save flow",
-        isError: true,
-      });
-      setTimeout(() => {
-        setToast({ show: false, message: "", isError: false });
-      }, 2000);
+      handleCallToast("Cannot save flow", true);
       return null;
     }
-
-    setToast({
-      show: true,
-      message: "Flow saved",
-      isError: false,
-    });
-    setTimeout(() => {
-      setToast({ show: false, message: "", isError: false });
-    }, 2000);
-
+    handleCallToast("Cannot save flow", false);
     return null;
   };
-
-  console.log(toast);
 
   return (
     <nav className="nav-container">

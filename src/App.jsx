@@ -8,11 +8,11 @@ import NodesPanel from "./containers/NodesPanel";
 import "./App.css";
 
 function App() {
-  const { nodes, setNodes } = useAppContext();
-  const reactFlowWrapper = useRef(null);
+  const { setNodes } = useAppContext();
   const idRef = useRef(2);
   const [reactFlowInstance, setReactFlowInstance] = useState(null);
 
+  // Whenever a new node is created generate an new id for the node
   const getId = () => {
     idRef.current = idRef.current + 1;
     return `sm-${idRef.current}`;
@@ -54,30 +54,14 @@ function App() {
       <Navigation />
       <ReactFlowProvider>
         <div style={{ display: "flex" }}>
-          <div
-            style={{
-              position: "relative",
-              zIndex: 1,
-              width: "80vw",
-              height: "100vh",
-            }}
-          >
+          <div className="chatbot-flow-container">
             <ChatbotFlow
               onInit={setReactFlowInstance}
               onDrop={onDrop}
               onDragOver={onDragOver}
             />
           </div>
-          <div
-            style={{
-              position: "relative",
-              zIndex: 2,
-              width: "20vw",
-              height: "100vh",
-              borderLeft: "1px solid rgba(0,0,0,0.1)",
-              padding: "0.75em 0.5em",
-            }}
-          >
+          <div className="nodes-panel-container">
             <NodesPanel />
           </div>
         </div>

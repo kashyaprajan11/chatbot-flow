@@ -1,0 +1,15 @@
+.chatbot-flow-container {
+  position: relative;
+  z-index: 1;
+  width: 80vw;
+  height: 100vw;
+}
+
+.nodes-panel-container {
+  position: relative;
+  z-index: 2;
+  width: 20vw;
+  height: 100vw;
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 0.75em 0.5em;
+}
