@@ -19,6 +19,8 @@ npm run dev
 
 Here is a demonstrating of the project:
 
+[Project Demostration Video Link](https://drive.google.com/file/d/1_299wbwUD_xlFsbg4Jpyl0aLIp_c1WfB/view?usp=sharing)
+
 <video width="640" height="480" controls>
   <source src="https://drive.google.com/uc?export=view&id=1_299wbwUD_xlFsbg4Jpyl0aLIp_c1WfB" type="video/webm">
   Your browser does not support the video tag.
