@@ -41,7 +41,7 @@ export default function NodesPanel() {
 
   const goBack = () => {
     dispatch({
-      type: appActionTypes.REMOVE_ACTIVE_MESSAGE,
+      type: appActionTypes.REMOVE_ACTIVE_MESSAGE_ID,
     });
   };
 

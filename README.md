@@ -15,6 +15,12 @@ npm install
 npm run dev
 ```
 
+# My Project
+
+Here is a cool GIF demonstrating my project:
+
+![Project Demo](https://drive.google.com/uc?export=view&id=1fMKekxziu8iuKwyoW6AtzjjoNSRQt4Qd)
+
 This project is hosted on vercel.
 
 [Project Link](https://chatbot-flow-phi.vercel.app/)

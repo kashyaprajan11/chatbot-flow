@@ -5,7 +5,7 @@ export const nodes = [
     data: {
       label: "Test message 1",
     },
-    position: { x: 400, y: 100 },
+    position: { x: 500, y: 100 },
   },
   {
     id: "sm-2",
