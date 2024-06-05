@@ -1,5 +1,5 @@
 import React, { memo } from "react";
-import { Handle, useStore, Position, useReactFlow } from "reactflow";
+import { Handle, Position } from "reactflow";
 import { IoChatbubbleOutline } from "react-icons/io5";
 import { PiWhatsappLogoFill } from "react-icons/pi";
 

@@ -41,7 +41,7 @@ function App() {
         id: getId(),
         type,
         position,
-        data: { label: `New node with id ${getId()}` },
+        data: { label: "New node is here" },
       };
 
       setNodes((nds) => nds.concat(newNode));
