@@ -15,11 +15,13 @@ npm install
 npm run dev
 ```
 
-# My Project
+# Demo
 
-Here is a cool GIF demonstrating my project:
+Here is a GIF demonstrating of the project:
 
-![Project Demo](https://drive.google.com/uc?export=view&id=1fMKekxziu8iuKwyoW6AtzjjoNSRQt4Qd)
+![Project Demo](https://drive.google.com/uc?export=view&id=1_299wbwUD_xlFsbg4Jpyl0aLIp_c1WfB)
+
+# Hosting
 
 This project is hosted on vercel.
 
